@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import axios from 'axios';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { Link, Navigate, useNavigate} from 'react-router-dom';
+import { Link, useNavigate} from 'react-router-dom';
 
 import { SiYourtraveldottv } from 'react-icons/si'
 import Swal  from 'sweetalert2'
@@ -31,31 +31,19 @@ const  login = () =>  {
     )
    }
 
-//     const login = async () => {
-//     axios.post('http://localhost:5000/api/SignIn', newData).then(() => {
-
-//    swal()
-//    navigate('/Showall')
-// }).catch((error) => {
-//     console.log(error)
-// })
+    const SignIn = async () => {
+    axios.post('http://localhost:5000/api/SignIn', newData).then(() => {
+   swal()
+   navigate('/Showall')
+}).catch((error) => {
+    console.log(error)
+})
  
-//     }
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        navigate('/Showall')   
-        // login()
-        // setSignin({
-        //     email:'',
-        //     password:'',
-        // })    
-      
     }
-    // const handleClick  = () => {
-    //     navigate('/Showall')
-    // }
-  
     return (
 
         <div className=' mt-3 d-flex justify-content-center  h-100'>
@@ -85,7 +73,7 @@ const  login = () =>  {
                 <p className='text-end ' style={{ fontSize: '10px', cursor: 'pointer' }}> forget you password</p>
 
                 <div className='d-flex justify-content-around align-items-center'>
-                    <Button   onClick={login} variant="primary" type="submit">
+                    <Button  variant="success" type="submit" onClick={SignIn}>
                         Login
                     </Button>
                     <Link to='./sign_up'>
